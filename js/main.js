@@ -254,11 +254,6 @@
         return;
       }
 
-      if (WEB3FORMS_KEY === 'YOUR_ACCESS_KEY_HERE') {
-        showFormFeedback('⚠️ Form not configured yet — add your Web3Forms key in main.js.', 'error');
-        return;
-      }
-
       /* Send via Web3Forms */
       sendBtn.disabled = true;
       if (btnText) btnText.textContent = 'Sending…';
