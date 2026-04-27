@@ -231,7 +231,7 @@
   const sendBtn = document.getElementById('sendBtn');
 
   /* ── Web3Forms access key — paste yours here after getting it from web3forms.com ── */
-  const WEB3FORMS_KEY = 'YOUR_ACCESS_KEY_HERE';
+  const WEB3FORMS_KEY = 'ab70e97e-de19-4d38-b49f-17ab114c421b';
 
   if (form && sendBtn) {
     form.addEventListener('submit', async (e) => {
