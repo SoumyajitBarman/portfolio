@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soumyajit Barman — Frontend Developer</title>
+  <meta name="description"
+    content="Soumyajit Barman is a frontend developer building modern, responsive web experiences with React, Vite, and creative UI design." />
+  <meta name="keywords" content="developer, portfolio, frontend, React, Vite, HTML, CSS, JavaScript, UI/UX" />
+  <meta property="og:title" content="Soumyajit Barman — Frontend Developer" />
+  <meta property="og:description"
+    content="Building modern, responsive web experiences with React and creative design." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ─── CURSOR ─── -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ─── THREE.JS CANVAS ─── -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ─── NAVBAR ─── -->
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="nav-logo">
+      <span class="logo-bracket">&lt;</span>SB<span class="logo-bracket">/&gt;</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" class="nav-link" data-text="About">About</a></li>
+      <li><a href="#skills" class="nav-link" data-text="Skills">Skills</a></li>
+      <li><a href="#projects" class="nav-link" data-text="Projects">Projects</a></li>
+      <li><a href="#contact" class="nav-link" data-text="Contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-outline nav-cta">Hire Me</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Available for work
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line" id="titleLine1">Hi, I'm</span>
+        <span class="title-line hero-name" id="titleLine2">Soumyajit Barman</span>
+        <span class="title-line title-gradient" id="titleLine3">Frontend Developer</span>
+      </h1>
+      <p class="hero-desc" id="heroDesc">
+        I craft immersive digital experiences — blending performant code with
+        stunning interactive design. From APIs to animated UIs, I build
+        <span class="highlight">things that matter</span>.
+      </p>
+      <div class="hero-actions" id="heroActions">
+        <a href="#projects" class="btn btn-primary">
+          <span>View Projects</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">Let's Talk</a>
+      </div>
+
+    </div>
+    <div class="hero-3d-container" id="hero3dContainer">
+      <!-- Three.js renders here via overlay canvas — just an ambient glow orb -->
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+
+    </div>
+    <div class="scroll-hint" id="scrollHint">
+      <div class="mouse">
+        <div class="mouse-wheel"></div>
+      </div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─── -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">The Human Behind <span class="gradient-text">The Code</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-photo-wrap">
+            <div class="photo-glow"></div>
+            <div class="photo-placeholder">
+              <div class="avatar-ring"></div>
+              <svg class="avatar-icon" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="75" r="40" fill="url(#avatarGrad)" />
+                <path d="M30 170c0-38.66 31.34-70 70-70s70 31.34 70 70" stroke="url(#avatarGrad)" stroke-width="6"
+                  stroke-linecap="round" />
+                <defs>
+                  <linearGradient id="avatarGrad" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#7c3aed" />
+                    <stop offset="1" stop-color="#06b6d4" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="photo-badge">
+              <span>💻</span> Open to Work
+            </div>
+          </div>
+          <div class="about-code-block">
+            <div class="code-bar">
+              <span class="cb-dot" style="background:#ff5f57"></span>
+              <span class="cb-dot" style="background:#ffbd2e"></span>
+              <span class="cb-dot" style="background:#28ca41"></span>
+              <span class="cb-file">about.js</span>
+            </div>
+            <pre class="code-content"><span class="c-kw">const</span> <span class="c-var">developer</span> = {
+  <span class="c-key">name</span>: <span class="c-str">"Soumyajit Barman"</span>,
+  <span class="c-key">role</span>: <span class="c-str">"Frontend Developer"</span>,
+  <span class="c-key">passions</span>: [
+    <span class="c-str">"UI/UX Design"</span>,
+    <span class="c-str">"React & Vite"</span>,
+    <span class="c-str">"Open source"</span>
+  ],
+  <span class="c-key">status</span>: <span class="c-str">"Available 🚀"</span>
+};</pre>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="about-intro">I'm <strong>Soumyajit Barman</strong>, a passionate frontend developer who loves
+            building clean, responsive, and visually delightful web experiences.</p>
+          <p>My journey started with curiosity about how websites work, and it quickly grew into a love for React, Vite,
+            and modern UI design. I enjoy crafting interfaces that are not just functional — but genuinely enjoyable to
+            use.</p>
+          <p>I'm still learning and growing every day, exploring new tools and always excited to take on new challenges.
+            I believe the best way to learn is by building real things.</p>
+          <div class="about-values">
+            <div class="value-chip">🎨 Design-Conscious</div>
+            <div class="value-chip">⚡ Fast & Responsive</div>
+            <div class="value-chip">📖 Always Learning</div>
+            <div class="value-chip">🚀 Builder Mindset</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ─── -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What I Know</span>
+        <h2 class="section-title">Skills & <span class="gradient-text">Technologies</span></h2>
+      </div>
+      <div class="skills-grid">
+        <!-- Category 1 -->
+        <div class="skill-category">
+          <h3 class="skill-cat-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="m9 9 3 3-3 3M13 15h3" />
+            </svg>
+            Frontend
+          </h3>
+          <div class="skill-bars">
+            <div class="skill-item" data-percent="85">
+              <div class="skill-info"><span>React & Vite</span><span class="skill-pct">85%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-percent="88">
+              <div class="skill-info"><span>HTML / CSS / JS</span><span class="skill-pct">88%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-percent="80">
+              <div class="skill-info"><span>Responsive Design</span><span class="skill-pct">80%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-percent="75">
+              <div class="skill-info"><span>UI/UX Design</span><span class="skill-pct">75%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Category 2 -->
+        <div class="skill-category">
+          <h3 class="skill-cat-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8M12 17v4" />
+            </svg>
+            Backend
+          </h3>
+          <div class="skill-bars">
+            <div class="skill-item" data-percent="72">
+              <div class="skill-info"><span>Node.js</span><span class="skill-pct">72%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--accent:#06b6d4"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-percent="68">
+              <div class="skill-info"><span>Python</span><span class="skill-pct">68%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--accent:#06b6d4"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Category 3 -->
+        <div class="skill-category">
+          <h3 class="skill-cat-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+            DevOps & Tools
+          </h3>
+          <div class="skill-bars">
+            <div class="skill-item" data-percent="82">
+              <div class="skill-info"><span>Git & GitHub</span><span class="skill-pct">82%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--accent:#f43f5e"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-percent="65">
+              <div class="skill-info"><span>AI/ML Integration</span><span class="skill-pct">65%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--accent:#f43f5e"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-percent="70">
+              <div class="skill-info"><span>WebSockets</span><span class="skill-pct">70%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--accent:#f43f5e"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ─── -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+      </div>
+      <div class="projects-grid" id="projectsGrid">
+
+        <article class="project-card" id="proj-1" data-category="frontend">
+          <div class="card-glow"></div>
+          <div class="card-inner">
+            <div class="card-header">
+              <div class="card-icon" style="background: linear-gradient(135deg, #7c3aed, #06b6d4)">🎮</div>
+              <div class="card-links">
+                <a href="https://github.com/SoumyajitBarman" class="card-link" aria-label="GitHub" target="_blank"
+                  rel="noopener">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                  </svg>
+                </a>
+                <a href="https://gamegrid.sbarman.in/" class="card-link" aria-label="Live Demo" target="_blank"
+                  rel="noopener">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="card-title">GameGrid</h3>
+            <p class="card-desc">GameGrid is a modern game discovery platform that lets users search, filter, and
+              explore video games. It includes a responsive UI, detailed game pages, and smooth user interactions.</p>
+            <div class="card-tags">
+              <span class="tag">React</span><span class="tag">Vite</span><span class="tag">CSS</span><span
+                class="tag">REST API</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-stat">🌐 Live at gamegrid.sbarman.in</span>
+              <span class="card-badge">Frontend</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Let's Build Something <span class="gradient-text">Amazing</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="contact-intro">I'm currently available for freelance work and full-time roles. If you have a project
+            in mind, or just want to say hello — my inbox is always open.</p>
+          <div class="contact-links">
+            <a href="mailto:contactsoumyajitbarman@gmail.com" class="contact-link" id="emailLink">
+              <div class="cl-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div class="cl-text">
+                <span class="cl-label">Email</span>
+                <span class="cl-value">contactsoumyajitbarman@gmail.com</span>
+              </div>
+            </a>
+            <a href="https://github.com/SoumyajitBarman" class="contact-link" id="githubLink" target="_blank"
+              rel="noopener">
+              <div class="cl-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
+              </div>
+              <div class="cl-text">
+                <span class="cl-label">GitHub</span>
+                <span class="cl-value">github.com/SoumyajitBarman</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contactName">Name</label>
+              <input type="text" id="contactName" name="name" placeholder="Your name" autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email</label>
+              <input type="email" id="contactEmail" name="email" placeholder="your@email.com" autocomplete="email" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contactSubject">Subject</label>
+            <input type="text" id="contactSubject" name="subject" placeholder="Project inquiry" />
+          </div>
+          <div class="form-group">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" name="message" rows="5"
+              placeholder="Tell me about your project..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-send" id="sendBtn">
+            <span class="btn-text">Send Message</span>
+            <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#hero" class="footer-logo">
+          <span class="logo-bracket">&lt;</span>SB<span class="logo-bracket">/&gt;</span>
+        </a>
+        <p class="footer-copy">© 2025 Soumyajit Barman. Crafted with ❤️ and lots of ☕</p>
+        <div class="footer-socials">
+          <a href="https://github.com/SoumyajitBarman" aria-label="GitHub" class="footer-social" target="_blank"
+            rel="noopener">GH</a>
+          <a href="mailto:contactsoumyajitbarman@gmail.com" aria-label="Email" class="footer-social">✉</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/three-bg.js"></script>
+  <script src="js/cards3d.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
